@@ -5,6 +5,7 @@
 		<defName>VCE_StewPot</defName>
 		<label>stew pot</label>
 		<description>A wood-fired stove with a top side perfectly indented for a large pot. The lack of need for electricity means this cooking apparatus is perfect for the rugged outdoorsman or medieval peasant alike. Stews are heartier and easier to cook than proper soups. Stews often meld into a singular flavor over long periods of time, perfect for gamey or “less enticing” meat products.\n\nThis building gives off a significant amount of heat.\n\nStew is slightly less nutrition-efficient than Soup, but requires only 2 days of cook time as opposed to Soup's 3.\n\n\As with most fueled buildings, this building consumes extra fuel when rained on. Keep it underneath a roof; remember that you can extend roofs past a wall without forming an enclosed room.</description>
+		<drawerType>MapMeshAndRealTime</drawerType>
 		<thingClass>ItemProcessor.Building_ItemProcessor</thingClass>
 		<graphicData>
 			<texPath>Things/Buildings/VCE_StewPot</texPath>
@@ -33,6 +34,11 @@
 			<MaxHitPoints>100</MaxHitPoints>
 			<Flammability>1.0</Flammability>
 		</statBases>
+	        <building>
+	          <isMealSource>true</isMealSource>
+	          <spawnedConceptLearnOpportunity>BillsTab</spawnedConceptLearnOpportunity>
+	          <heatPerTickWhileWorking>0.10</heatPerTickWhileWorking>
+	        </building>
 		<tickerType>Normal</tickerType>
 		<size>(1,1)</size>
 		<designationCategory>Production</designationCategory>
@@ -48,6 +54,7 @@
 			
 			<li Class="ItemProcessor.CompProperties_ItemProcessor">
 				<buildingOnGraphic>Things/Buildings/VCE_StewPotFull</buildingOnGraphic>
+				<buildingFinishedGraphic>Things/Buildings/VCE_StewPotFull</buildingFinishedGraphic>
 				<numberOfInputs>1</numberOfInputs>
 				<acceptsNoneAsInput>false</acceptsNoneAsInput>
 				<InsertFirstItemDesc>VCE_InsertStewDesc</InsertFirstItemDesc>
@@ -99,10 +106,4 @@
 			</li>
 		</comps>
 	</ThingDef>
-
-	
-
-
-
-
 </Defs>
