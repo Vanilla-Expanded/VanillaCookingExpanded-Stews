@@ -13,6 +13,15 @@
 		
 		<researchViewX>2</researchViewX>
 		<researchViewY>0</researchViewY>
+		<generalRules>
+  <rulesStrings>
+    <li>subject->hearth and heart</li>
+    <li>subject_story->embraced the tradition of stew cooking, bringing together community and cuisine over the warmth of a shared pot</li>
+    <li>subject_story->cultivated techniques to craft stews that are not only nourishing but carry the flavors of cultural heritage and togetherness</li>
+    <li>subject_story->introduced the wood-fired pot, an essential tool for preparing these hearty meals in the traditional way</li>
+    <li>subject_gerund->nurturing bodies and souls with the communal art of stew making</li>
+  </rulesStrings>
+</generalRules>
 	</ResearchProjectDef>
 
 	
