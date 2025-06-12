@@ -6,7 +6,7 @@
 		<label>stew pot</label>
 		<description>A wood-fired stove with a top side perfectly indented for a large pot. The lack of need for electricity means this cooking apparatus is perfect for the rugged outdoorsman or medieval peasant alike. Stews are heartier and easier to cook than proper soups. Stews often meld into a singular flavor over long periods of time, perfect for gamey or “less enticing” meat products.\n\nThis building gives off a significant amount of heat.\n\nStew is slightly less nutrition-efficient than Soup, but requires only 2 days of cook time as opposed to Soup's 3.\n\n\As with most fueled buildings, this building consumes extra fuel when rained on. Keep it underneath a roof; remember that you can extend roofs past a wall without forming an enclosed room.</description>
 		<drawerType>MapMeshAndRealTime</drawerType>
-		<thingClass>ItemProcessor.Building_ItemProcessor</thingClass>
+		
 		<graphicData>
 			<texPath>Things/Buildings/VCE_StewPot</texPath>
 			<graphicClass>Graphic_Multi</graphicClass>
@@ -29,11 +29,19 @@
 		<uiIconScale>0.8</uiIconScale>
 		<fillPercent>0.5</fillPercent>
 		<useHitPoints>True</useHitPoints>
+		<inspectorTabs>
+			<li>PipeSystem.ITab_Processor</li>
+		</inspectorTabs>
 		<statBases>
 			<WorkToBuild>600</WorkToBuild>
 			<MaxHitPoints>100</MaxHitPoints>
 			<Flammability>1.0</Flammability>
 		</statBases>
+	        <building>
+	          <isMealSource>true</isMealSource>
+	          <spawnedConceptLearnOpportunity>BillsTab</spawnedConceptLearnOpportunity>
+	          <heatPerTickWhileWorking>0.10</heatPerTickWhileWorking>
+	        </building>
 		<tickerType>Normal</tickerType>
 		<size>(1,1)</size>
 		<designationCategory>Production</designationCategory>
@@ -46,35 +54,21 @@
 			<li>VCE_StewCooking</li>
 		</researchPrerequisites>
 		<comps>
-			
-			<li Class="ItemProcessor.CompProperties_ItemProcessor">
-				<buildingOnGraphic>Things/Buildings/VCE_StewPotFull</buildingOnGraphic>
-				<buildingFinishedGraphic>Things/Buildings/VCE_StewPotFull</buildingFinishedGraphic>
-				<numberOfInputs>1</numberOfInputs>
-				<acceptsNoneAsInput>false</acceptsNoneAsInput>
-				<InsertFirstItemDesc>VCE_InsertStewDesc</InsertFirstItemDesc>
-				<ignoresIngredientLists>true</ignoresIngredientLists>
-				<isSemiAutomaticMachine>true</isSemiAutomaticMachine>
-				<resetSemiautomaticIcon>UI/VCE_ResetStew</resetSemiautomaticIcon>
+			<li Class="PipeSystem.CompProperties_AdvancedResourceProcessor">
+				<notWorkingKey>VCE_StewPotNotWorking</notWorkingKey>
+				<processes>
+					<li>VCE_SimpleStewRecipe</li>
+					<li>VCE_FineStewRecipe</li>
+					<li>VCE_LavishStewRecipe</li>
+					
+				</processes>
+				<progressBarOffset>(0,0,-0.75)</progressBarOffset>
+				<hideSettings>true</hideSettings>
+				<inProgressTexture>Things/Buildings/VCE_StewPotFull</inProgressTexture>
+				<finishedTexture>Things/Buildings/VCE_StewPotFull</finishedTexture>
 				
-				<chooseIngredientsIcon>UI/VCE_EmptyStewPotIcon</chooseIngredientsIcon>
-
-				<bringIngredientsText>VCE_StartStewInsertion</bringIngredientsText>
-				<bringIngredientsDesc>VCE_StartStewInsertionDesc</bringIngredientsDesc>
-				<bringIngredientsIcon>UI/VCE_InsertStew</bringIngredientsIcon >
-
-				<cancelIngredientsText>VCE_CancelBringingStew</cancelIngredientsText> 
-				<cancelIngredientsDesc>VCE_CancelBringingStewDesc</cancelIngredientsDesc>
-				<cancelIngredientsIcon>UI/VCE_CancelStew</cancelIngredientsIcon> 
-				
-				<noPowerDestroysProgress>true</noPowerDestroysProgress>
-				<rareTicksToDestroy>10</rareTicksToDestroy>
-				<noPowerDestroysMessage>VCE_StewFailurePower</noPowerDestroysMessage>
-				<noPowerDestroysInitialWarning>VCE_StewFailurePowerWarning</noPowerDestroysInitialWarning>
-
-				<destroyIngredientsAtStartOfProcess>true</destroyIngredientsAtStartOfProcess>
-
 			</li>
+			
 			<li Class="CompProperties_Refuelable">
 				<fuelConsumptionRate>3.33</fuelConsumptionRate>
 				<fuelCapacity>20.0</fuelCapacity>
@@ -101,10 +95,4 @@
 			</li>
 		</comps>
 	</ThingDef>
-
-	
-
-
-
-
 </Defs>

@@ -18,6 +18,9 @@
 	<VCE_FinishedSimpleStew>A simple stew is ready and waiting for pickup</VCE_FinishedSimpleStew>
 	<VCE_FinishedFineStew>A fine stew is ready and waiting for pickup</VCE_FinishedFineStew>
 	<VCE_FinishedLavishStew>A lavish stew is ready and waiting for pickup</VCE_FinishedLavishStew>
+	
+	<VCE_StewPotNotWorking>This stew pot is not working at the moment</VCE_StewPotNotWorking>
+
 
 
 	
